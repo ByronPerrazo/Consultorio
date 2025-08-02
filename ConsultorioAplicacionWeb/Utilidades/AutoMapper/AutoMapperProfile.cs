@@ -63,9 +63,7 @@ namespace ConsultorioWebApp.Utilidades.AutoMapper
                 );
             #endregion
 
-            CreateMap<Provincia, ProvinciaVM>().ReverseMap();
-            CreateMap<Canton, CantonVM>().ReverseMap();
-            CreateMap<Parroquia, ParroquiaVM>().ReverseMap();
+            
 
             CreateMap<Catalogo, CatalogoVM>()
                 .ForMember(destino =>

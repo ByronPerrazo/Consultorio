@@ -12,8 +12,6 @@ public partial class ConsultoriodbContext : DbContext
 
     public virtual DbSet<Catalogo> Catalogos { get; set; }
 
-    public virtual DbSet<Canton> Cantones { get; set; }
-
     public virtual DbSet<Empresa> Empresas { get; set; }
 
     public virtual DbSet<Empresacorreo> Empresacorreos { get; set; }
@@ -21,10 +19,6 @@ public partial class ConsultoriodbContext : DbContext
     public virtual DbSet<Empresastorage> Empresastorages { get; set; }
 
     public virtual DbSet<Menu> Menus { get; set; }
-
-    public virtual DbSet<Parroquia> Parroquia { get; set; }
-
-    public virtual DbSet<Provincia> Provincia { get; set; }
 
     public virtual DbSet<Rol> Roles { get; set; }
 
@@ -61,30 +55,6 @@ public partial class ConsultoriodbContext : DbContext
             entity.Property(e => e.UrlCatalogo)
                 .HasMaxLength(500)
                 .HasColumnName("urlCatalogo");
-        });
-
-        modelBuilder.Entity<Canton>(entity =>
-        {
-            entity.HasKey(e => e.Secuencial).HasName("PRIMARY");
-
-            entity.ToTable("canton");
-
-            entity.HasIndex(e => e.SecProvincia, "Fk_Provincia_Canton");
-
-            entity.Property(e => e.Secuencial).HasColumnName("secuencial");
-            entity.Property(e => e.Codigo)
-                .HasMaxLength(5)
-                .HasColumnName("codigo");
-            entity.Property(e => e.EstaActivo).HasColumnName("estaActivo");
-            entity.Property(e => e.Nombre)
-                .HasMaxLength(100)
-                .HasColumnName("nombre");
-            entity.Property(e => e.SecProvincia).HasColumnName("secProvincia");
-
-            entity.HasOne(d => d.SecProvinciaNavigation).WithMany(p => p.Cantons)
-                .HasForeignKey(d => d.SecProvincia)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("Fk_Provincia_Canton");
         });
 
         modelBuilder.Entity<Empresa>(entity =>
@@ -218,46 +188,6 @@ public partial class ConsultoriodbContext : DbContext
             entity.HasOne(d => d.SecMenuPadreNavigation).WithMany(p => p.InverseSecMenuPadreNavigation)
                 .HasForeignKey(d => d.SecMenuPadre)
                 .HasConstraintName("FK_Menu_Menu");
-        });
-
-        modelBuilder.Entity<Parroquia>(entity =>
-        {
-            entity.HasKey(e => e.Secuencial).HasName("PRIMARY");
-
-            entity.ToTable("parroquia");
-
-            entity.HasIndex(e => e.SecCanton, "FK_Parroquia_Canton_idx");
-
-            entity.Property(e => e.Secuencial).HasColumnName("secuencial");
-            entity.Property(e => e.Codigo)
-                .HasMaxLength(5)
-                .HasColumnName("codigo");
-            entity.Property(e => e.EstaActivo).HasColumnName("estaActivo");
-            entity.Property(e => e.Nombre)
-                .HasMaxLength(150)
-                .HasColumnName("nombre");
-            entity.Property(e => e.SecCanton).HasColumnName("secCanton");
-
-            entity.HasOne(d => d.SecCantonNavigation).WithMany(p => p.Parroquia)
-                .HasForeignKey(d => d.SecCanton)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("Fk_Canton_Parroquia");
-        });
-
-        modelBuilder.Entity<Provincia>(entity =>
-        {
-            entity.HasKey(e => e.Secuencial).HasName("PRIMARY");
-
-            entity.ToTable("provincia");
-
-            entity.Property(e => e.Secuencial).HasColumnName("secuencial");
-            entity.Property(e => e.Codigo)
-                .HasMaxLength(5)
-                .HasColumnName("codigo");
-            entity.Property(e => e.EstaActivo).HasColumnName("estaActivo");
-            entity.Property(e => e.Nombre)
-                .HasMaxLength(100)
-                .HasColumnName("nombre");
         });
 
         modelBuilder.Entity<Rol>(entity =>

@@ -33,9 +33,6 @@ namespace IOC
             services.AddScoped<IEmpresaStorageServices, EmpresaStorageServices>();
             services.AddScoped<IEmpresaServices, EmpresaServices>();
             services.AddScoped<IMenuServices, MenuServices>();
-            services.AddScoped<IProvinciaServices, ProvinciaServices>();
-            services.AddScoped<ICantonServices, CantonServices>();
-            services.AddScoped<IParroquiaServices, ParroquiaServices>();
             services.AddScoped<ICatalogoServices, CatalogoServices>();
             services.AddScoped<IPermisosRolServices, PermisosRolServices>();
             services.AddScoped<IRolMenuServices, RolMenuServices>();
