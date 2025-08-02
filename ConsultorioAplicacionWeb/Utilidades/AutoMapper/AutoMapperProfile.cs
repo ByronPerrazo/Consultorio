@@ -27,10 +27,10 @@ namespace ConsultorioWebApp.Utilidades.AutoMapper
             #region Usuario
             CreateMap<Usuario, UsuarioVM>()
                 .ForMember(destino =>
-                           destino.EsActivo,
+                           destino.EstaActivo,
                                    opt =>
                                    opt.MapFrom(origen =>
-                                               origen.EsActivo))
+                                               origen.EstaActivo))
                 .ForMember(destino =>
                            destino.NombreRol,
                                     opt =>
@@ -39,10 +39,10 @@ namespace ConsultorioWebApp.Utilidades.AutoMapper
 
             CreateMap<UsuarioVM, Usuario>()
                 .ForMember(destino =>
-                           destino.EsActivo,
+                           destino.EstaActivo,
                                    opt =>
                                    opt.MapFrom(origen =>
-                                                      origen.EsActivo == 1))
+                                                      origen.EstaActivo == 1))
                 .ForMember(destino =>
                            destino.SecRolNavigation,
                                    opt =>

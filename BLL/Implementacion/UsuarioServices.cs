@@ -165,7 +165,7 @@ namespace BLL.Implementacion
                 usuario.Correo = entidad.Correo;
                 usuario.SecRol = entidad.SecRol;
                 usuario.Telefono = entidad.Telefono;
-                usuario.EsActivo = entidad.EsActivo;
+                usuario.EstaActivo = entidad.EstaActivo;
 
 
                 var empresaStorage = await _empresaStorageServices.Consultar();

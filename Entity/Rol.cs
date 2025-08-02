@@ -6,7 +6,7 @@ public partial class Rol
 
     public string? Descripcion { get; set; }
 
-    public short? EsActivo { get; set; }
+    public short? EstaActivo { get; set; }
 
     public DateTime? FechaRegistro { get; set; }
 

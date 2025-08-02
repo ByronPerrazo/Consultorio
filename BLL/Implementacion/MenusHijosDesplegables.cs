@@ -20,7 +20,7 @@ namespace BLL.Implementacion
         public async Task<List<Menu>> ObtenerMenusHijos()
         {
             // Obtener todos los menús activos
-            var todosLosMenusActivos = await _repositorioMenu.Consultar(m => m.EsActivo == 1);
+            var todosLosMenusActivos = await _repositorioMenu.Consultar(m => m.EstaActivo == 1);
 
             // Obtener los secuenciales de todos los menús que son padres (tienen hijos activos)
             var secuencialesDePadres = todosLosMenusActivos

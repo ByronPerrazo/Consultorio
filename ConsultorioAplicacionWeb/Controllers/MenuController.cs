@@ -441,7 +441,7 @@ namespace ConsultorioAplicacionWeb.Controllers
                         Icono = menu.Icono,
                         Controlador = menu.Controlador,
                         PaginaAccion = menu.PaginaAccion,
-                        EsActivo = menu.EsActivo
+                        EstaActivo = menu.EstaActivo
                     };
 
                     if (menu.SecMenuPadre.HasValue && menu.SecMenuPadre.Value != menu.Secuencial)

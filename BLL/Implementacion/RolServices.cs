@@ -55,7 +55,7 @@ namespace BLL.Implementacion
                     throw new TaskCanceledException("El rol no existe");
 
                 registroBase.Descripcion = entidad.Descripcion;
-                registroBase.EsActivo = entidad.EsActivo;
+                registroBase.EstaActivo = entidad.EstaActivo;
 
                 if (await _repositorio.Editar(registroBase))
                 {
@@ -84,7 +84,7 @@ namespace BLL.Implementacion
                     usuariosConRol
                     .Count(x =>
                            x.SecRol == secuencialRol &&
-                           x.EsActivo == 1);
+                           x.EstaActivo == 1);
 
                 if (numeroUsuarios > 0)
                     throw new TaskCanceledException("No se puede eliminar el rol porque tiene usuarios asociados");

@@ -11,7 +11,7 @@
         public string? UrlFoto { get; set; }
         public string? NombreFoto { get; set; }
         public string? Clave { get; set; }
-        public ulong? EsActivo { get; set; }
+        public ulong? EstaActivo { get; set; }
         public DateTime? FechaRegistro { get; set; }
     }
 }

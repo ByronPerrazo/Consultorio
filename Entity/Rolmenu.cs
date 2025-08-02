@@ -8,7 +8,7 @@ public partial class RolMenu
 
     public int? SecMenu { get; set; }
 
-    public short? EsActivo { get; set; }
+    public short? EstaActivo { get; set; }
 
     public DateTime? FechaRegistro { get; set; }
 

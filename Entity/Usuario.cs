@@ -18,7 +18,7 @@ public partial class Usuario
 
     public string? Clave { get; set; }
 
-    public short? EsActivo { get; set; }
+    public short? EstaActivo { get; set; }
 
     public DateTime? FechaRegistro { get; set; }
 

@@ -36,11 +36,11 @@ namespace BLL.Implementacion
             if (usuario == null || usuario.SecRol == null) return new List<Menu>();
 
             // 1. Obtener todos los menús activos para referencia y ponerlos en un diccionario para búsqueda O(1).
-            var todosLosMenusActivos = await (await _repositorioMenu.Consultar(m => m.EsActivo == 1)).ToListAsync();
+            var todosLosMenusActivos = await (await _repositorioMenu.Consultar(m => m.EstaActivo == 1)).ToListAsync();
             var todosLosMenusDict = todosLosMenusActivos.ToDictionary(m => m.Secuencial);
 
             // 2. Obtener los Ids de menú a los que el usuario tiene permiso directo.
-            var rolMenuQuery = await _repositorioRolMenu.Consultar(rm => rm.SecRol == usuario.SecRol && rm.EsActivo == 1 && rm.SecMenu != null);
+            var rolMenuQuery = await _repositorioRolMenu.Consultar(rm => rm.SecRol == usuario.SecRol && rm.EstaActivo == 1 && rm.SecMenu != null);
             var idsMenusDirectos = await rolMenuQuery.Select(rm => rm.SecMenu.Value).ToListAsync();
 
             // 3. Construir la lista final de menús a mostrar, incluyendo todos los ancestros para evitar "hijos huérfanos".
@@ -115,7 +115,7 @@ namespace BLL.Implementacion
                 menuEncontrado.Icono = entidad.Icono;
                 menuEncontrado.Controlador = entidad.Controlador;
                 menuEncontrado.PaginaAccion = entidad.PaginaAccion;
-                menuEncontrado.EsActivo = entidad.EsActivo;
+                menuEncontrado.EstaActivo = entidad.EstaActivo;
 
                 bool respuesta = await _repositorioMenu.Editar(menuEncontrado);
 

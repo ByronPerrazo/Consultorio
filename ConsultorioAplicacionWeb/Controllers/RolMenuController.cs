@@ -137,7 +137,7 @@ namespace ConsultorioWebApp.Controllers
                     {
                         SecRol = request.SecRol,
                         SecMenu = secMenu,
-                        EsActivo = 1 // Asignar como activo por defecto
+                        EstaActivo = 1 // Asignar como activo por defecto
                     };
                     await _rolMenuServices.Crear(nuevoRolMenu);
                 }

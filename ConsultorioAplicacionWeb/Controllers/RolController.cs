@@ -111,7 +111,7 @@ namespace ConsultorioWebApp.Controllers
                 var rolMenusExistentes = await _rolMenuServices.Lista();
 
                 var menusAsignadosIds = rolMenusExistentes
-                                        .Where(rm => rm.SecRol == secRol && rm.EsActivo == 1 && rm.SecMenu.HasValue)
+                                        .Where(rm => rm.SecRol == secRol && rm.EstaActivo == 1 && rm.SecMenu.HasValue)
                                         .Select(rm => rm.SecMenu.Value)
                                         .ToList();
 

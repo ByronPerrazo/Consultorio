@@ -8,6 +8,6 @@ namespace ConsultorioWebApp.Models.ViewModel
         public string? Icono { get; set; }
         public string? Controlador { get; set; }
         public string? PaginaAccion { get; set; }
-        public short? EsActivo { get; set; }
+        public short? EstaActivo { get; set; }
     }
 }
