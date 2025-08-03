@@ -20,7 +20,7 @@ namespace BLL.Implementacion
                 .Permisosrols
                 .FirstOrDefault(x =>
                                 x.SecRol == secRol &&
-                                x.Activo == 1);
+                                x.EstaActivo == 1);
 
             if (rolPermisos == null) return false;
 

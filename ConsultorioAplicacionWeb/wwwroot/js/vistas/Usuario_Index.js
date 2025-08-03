@@ -4,7 +4,7 @@ const MODELO_BASE = {
     correo: "",
     telefono: "",
     secRol: 0,
-    esActivo: 1,
+    estaActivo: 1,
     urlFoto: ""
 }
 
@@ -36,7 +36,7 @@ $(document).ready(function () {
             { data: "telefono" },
             { data: "nombreRol" },
             {
-                data: "esActivo", render: function (data) {
+                data: "estaActivo", render: function (data) {
                     if (data == 1)
                         return '<span class="badge badge-info">Activo</span>';
                     else
@@ -76,7 +76,7 @@ function mostrarModal(modelo = MODELO_BASE, listaRoles = []) {
     $("#txtNombre").val(modelo.nombre)
     $("#txtCorreo").val(modelo.correo)
     $("#txtTelefono").val(modelo.telefono)
-    $("#cboEstado").val(modelo.esActivo)
+    $("#cboEstado").val(modelo.estaActivo)
     $("#txtFoto").val("")
     $("#imgUsuario").attr("src", modelo.urlFoto)
 
@@ -159,7 +159,7 @@ $("#btnGuardar").click(function () {
     modelo["correo"] = $("#txtCorreo").val();
     modelo["telefono"] = $("#txtTelefono").val();
     modelo["secRol"] = $("#cboRol").val();
-    modelo["esActivo"] = $("#cboEstado").val();
+    modelo["estaActivo"] = $("#cboEstado").val();
 
     const inputImagen = document.getElementById("txtFoto");
     const datosFormulario = new FormData();

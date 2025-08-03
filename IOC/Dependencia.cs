@@ -16,9 +16,7 @@ namespace IOC
             services
                 .AddDbContext<ConsultoriodbContext>(options =>
                 {
-                    options
-                    .UseMySql(configuration.GetConnectionString("ConexionDBAWS"),
-                              Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.37-mysql"));
+                    options.UseMySql(configuration.GetConnectionString("ConexionDB"), new MySqlServerVersion(new Version(8, 0, 37)), mySqlOptions => mySqlOptions.EnableRetryOnFailure());
                 });
 
             services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepository<>));

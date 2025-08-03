@@ -41,7 +41,7 @@ public partial class ConsultoriodbContext : DbContext
             entity.ToTable("catalogo");
 
             entity.Property(e => e.Secuencial).HasColumnName("secuencial");
-            entity.Property(e => e.EstaActivo).HasColumnName("estaActivo");
+            entity.Property(e => e.EstaActivo).HasColumnName("EstaActivo");
             entity.Property(e => e.FechaRegistro)
                 .HasDefaultValueSql("CURRENT_TIMESTAMP")
                 .HasColumnType("datetime")
@@ -73,7 +73,7 @@ public partial class ConsultoriodbContext : DbContext
             entity.Property(e => e.Direccion)
                 .HasMaxLength(250)
                 .HasColumnName("direccion");
-            entity.Property(e => e.EstaActivo).HasColumnName("estaActivo");
+            entity.Property(e => e.EstaActivo).HasColumnName("EstaActivo");
             entity.Property(e => e.Identificacion)
                 .HasMaxLength(15)
                 .HasColumnName("identificacion");
@@ -107,7 +107,7 @@ public partial class ConsultoriodbContext : DbContext
             entity.Property(e => e.Email)
                 .HasMaxLength(150)
                 .HasColumnName("email");
-            entity.Property(e => e.EstaActivo).HasColumnName("estaActivo");
+            entity.Property(e => e.EstaActivo).HasColumnName("EstaActivo");
             entity.Property(e => e.Host)
                 .HasMaxLength(50)
                 .HasColumnName("host");
@@ -146,7 +146,7 @@ public partial class ConsultoriodbContext : DbContext
             entity.Property(e => e.Email)
                 .HasMaxLength(150)
                 .HasColumnName("email");
-            entity.Property(e => e.EstaActivo).HasColumnName("estaActivo");
+            entity.Property(e => e.EstaActivo).HasColumnName("EstaActivo");
             entity.Property(e => e.Ruta)
                 .HasMaxLength(255)
                 .HasColumnName("ruta");
@@ -172,7 +172,7 @@ public partial class ConsultoriodbContext : DbContext
             entity.Property(e => e.Descripcion)
                 .HasMaxLength(130)
                 .HasColumnName("descripcion");
-            entity.Property(e => e.EstaActivo).HasColumnName("estaActivo");
+            entity.Property(e => e.EstaActivo).HasColumnName("EstaActivo");
             entity.Property(e => e.FechaRegistro)
                 .HasDefaultValueSql("CURRENT_TIMESTAMP")
                 .HasColumnType("datetime")
@@ -200,7 +200,7 @@ public partial class ConsultoriodbContext : DbContext
             entity.Property(e => e.Descripcion)
                 .HasMaxLength(150)
                 .HasColumnName("descripcion");
-            entity.Property(e => e.EstaActivo).HasColumnName("estaActivo");
+            entity.Property(e => e.EstaActivo).HasColumnName("EstaActivo");
             entity.Property(e => e.FechaRegistro)
                 .HasDefaultValueSql("CURRENT_TIMESTAMP")
                 .HasColumnType("datetime")
@@ -217,7 +217,7 @@ public partial class ConsultoriodbContext : DbContext
             entity.HasIndex(e => e.SecRol, "FK_Rol_Menu_idx");
 
             entity.Property(e => e.Secuencial).HasColumnName("secuencial");
-            entity.Property(e => e.EstaActivo).HasColumnName("estaActivo");
+            entity.Property(e => e.EstaActivo).HasColumnName("EstaActivo");
             entity.Property(e => e.FechaRegistro)
                 .HasDefaultValueSql("CURRENT_TIMESTAMP")
                 .HasColumnType("datetime")
@@ -237,10 +237,7 @@ public partial class ConsultoriodbContext : DbContext
         modelBuilder.Entity<Usuario>(entity =>
         {
             entity.HasKey(e => e.Secuencial).HasName("PRIMARY");
-
-
             entity.ToTable("usuario");
-
             entity.HasIndex(e => e.SecRol, "Fk_Rol_Usuario_idx");
 
             entity.Property(e => e.Secuencial).HasColumnName("secuencial");
@@ -250,7 +247,7 @@ public partial class ConsultoriodbContext : DbContext
             entity.Property(e => e.Correo)
                 .HasMaxLength(150)
                 .HasColumnName("correo");
-            entity.Property(e => e.EstaActivo).HasColumnName("estaActivo");
+            entity.Property(e => e.EstaActivo).HasColumnName("EstaActivo");
             entity.Property(e => e.FechaRegistro)
                 .HasDefaultValueSql("CURRENT_TIMESTAMP")
                 .HasColumnType("datetime")
@@ -281,7 +278,7 @@ public partial class ConsultoriodbContext : DbContext
             entity.ToTable("permisosrol");
 
             entity.Property(e => e.Secuencial).HasColumnName("secuencial");
-            entity.Property(e => e.Activo).HasColumnName("activo");
+            entity.Property(e => e.EstaActivo).HasColumnName("EstaActivo");
             entity.Property(e => e.Consultar).HasColumnName("consultar");
             entity.Property(e => e.Eliminar).HasColumnName("eliminar");
             entity.Property(e => e.FechaRegistro)

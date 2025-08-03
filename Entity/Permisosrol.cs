@@ -19,5 +19,5 @@ public partial class Permisosrol
 
     public short Eliminar { get; set; }
 
-    public short Activo { get; set; }
+    public short EstaActivo { get; set; }
 }

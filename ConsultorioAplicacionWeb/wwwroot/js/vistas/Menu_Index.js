@@ -5,7 +5,7 @@ const MODELO_BASE = {
     icono: "",
     controlador: "",
     paginaAccion: "",
-    esActivo: 1
+    estaActivo: 1
 }
 
 let tablaData;
@@ -35,7 +35,7 @@ $(document).ready(function () {
             { "data": "controlador" },
             { "data": "paginaAccion" },
             {
-                "data": "esActivo", render: function (data) {
+                "data": "estaActivo", render: function (data) {
                     if (data == 1)
                         return '<span class="badge badge-info">Activo</span>';
                     else
@@ -75,7 +75,7 @@ function mostrarModal(modelo = MODELO_BASE, listaMenusPadre = [], iconosDisponib
     //$("#txtIcono").val(modelo.icono);
     $("#txtControlador").val(modelo.controlador);
     $("#txtPaginaAccion").val(modelo.paginaAccion);
-    $("#cboEstado").val(modelo.esActivo);
+    $("#cboEstado").val(modelo.estaActivo);
 
     const cboMenuPadre = $("#cboMenuPadre");
     cboMenuPadre.empty();

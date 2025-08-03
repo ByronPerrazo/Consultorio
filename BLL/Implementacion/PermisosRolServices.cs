@@ -27,13 +27,13 @@ namespace BLL.Implementacion
                     permisoExistente.Consultar = entidad.Consultar;
                     permisoExistente.Modificar = entidad.Modificar;
                     permisoExistente.Eliminar = entidad.Eliminar;
-                    permisoExistente.Activo = 1;
+                    permisoExistente.EstaActivo = 1;
                     await _repositorio.Editar(permisoExistente);
                     return permisoExistente;
                 }
                 else
                 {
-                    entidad.Activo = 1;
+                    entidad.EstaActivo = 1;
                     var permisoCreado = await _repositorio.Crear(entidad);
                     return permisoCreado;
                 }
@@ -49,7 +49,7 @@ namespace BLL.Implementacion
         {
             try
             {
-                var permisoExistente = await _repositorio.Obtener(p => p.SecRol == entidad.SecRol && p.Activo == 1);
+                var permisoExistente = await _repositorio.Obtener(p => p.SecRol == entidad.SecRol && p.EstaActivo == 1);
 
                 if (permisoExistente != null)
                 {
@@ -62,7 +62,7 @@ namespace BLL.Implementacion
                 else
                 {
                     // Si no se encuentra un permiso activo, se crea uno nuevo.
-                    entidad.Activo = 1;
+                    entidad.EstaActivo = 1;
                     var permisoCreado = await _repositorio.Crear(entidad);
                     return permisoCreado;
                 }
@@ -104,7 +104,7 @@ namespace BLL.Implementacion
             => await _repositorio
                      .Obtener(x =>
                               x.SecRol == secRol &&
-                              x.Activo == 1);
+                              x.EstaActivo == 1);
 
            
     }

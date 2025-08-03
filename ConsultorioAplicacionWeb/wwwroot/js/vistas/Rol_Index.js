@@ -2,7 +2,7 @@ const MODELO_BASE = {
     secuencial: 0,
     descripcion: "",
     FechaRegistro: "",
-    esActivo: 1
+    estaActivo: 1
 }
 
 let tablaData;
@@ -28,7 +28,7 @@ $(document).ready(function () {
                 { data: "descripcion", searchable: true },
                 { data: "fechaRegistro", searchable: true, width: "100px" },
                 {
-                    data: "esActivo", render: function (data) {
+                    data: "estaActivo", render: function (data) {
                         if (data == 1)
                             return '<span class="badge badge-info">Activo</span>';
                         else
@@ -69,7 +69,7 @@ $(document).ready(function () {
 function mostrarModal(modelo = MODELO_BASE) {
     $("#txtId").val(modelo.secuencial);
     $("#txtDescripcionRol").val(modelo.descripcion);
-    $("#cboEstado").val(modelo.esActivo);
+    $("#cboEstado").val(modelo.estaActivo);
 
     if (modelo.oPermisosRol) {
         $("#checkConsultar").prop("checked", modelo.oPermisosRol.consultar == 1);

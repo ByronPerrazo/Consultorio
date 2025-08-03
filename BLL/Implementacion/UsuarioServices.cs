@@ -271,7 +271,7 @@ namespace BLL.Implementacion
         {
             return await _repositorio.Obtener(x =>
                                                x.Correo.Equals(correo) &&
-                                               x.Clave.Equals(_utilidadesServices.ConvertirSha256(clave)));
+                                               x.Clave.Equals(_utilidadesServices.ConvertirSha256(clave)) && x.EstaActivo == 1);
         }
 
         public async Task<bool> RestablecerClave(string? correoDestino, string urlPantillaCorreo = "")

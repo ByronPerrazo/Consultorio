@@ -2,7 +2,7 @@ const MODELO_BASE = {
     secuencial: 0,
     secRol: 0,
     secMenu: 0,
-    esActivo: 1,
+    estaActivo: 1,
     fechaRegistro: ""
 }
 
@@ -66,7 +66,7 @@ $(document).ready(function () {
                 { "data": "descripcionRol" },
                 { "data": "descripcionMenu" },
                 {
-                    "data": "esActivo", render: function (data) {
+                    "data": "estaActivo", render: function (data) {
                         if (data == 1)
                             return '<span class="badge badge-info">Activo</span>';
                         else
@@ -119,7 +119,7 @@ function mostrarModal(modelo = MODELO_BASE) {
     $("#txtId").val(modelo.secuencial)
     $("#cboRol").val(modelo.secRol)
     $("#cboMenu").val(modelo.secMenu)
-    $("#cboEstado").val(modelo.esActivo)
+    $("#cboEstado").val(modelo.estaActivo)
 
     $("#modalData").modal("show")
 }
